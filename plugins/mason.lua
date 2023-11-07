@@ -48,8 +48,10 @@ return {
         "python",
       })
       opts.handlers = {
-        python = function(source_name)
+        -- PHP Adapter
+        php = function(source_name)
           local dap = require "dap"
+          ---@diagnostic disable-next-line: missing-fields
           dap.adapters.php = {
             type = "executable",
             command = "node",
@@ -57,7 +59,6 @@ return {
               "/home/mahdi/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
             },
           }
-
           dap.configurations.php = {
             {
               type = "php",
@@ -77,6 +78,57 @@ return {
                 XDEBUG_MODE = "debug,develop",
                 XDEBUG_CONFIG = "client_port=${port}",
               },
+            },
+          }
+        end,
+        -- Python
+        python = function(source_name)
+          local dap = require "dap"
+          dap.adapters.python = function(cb, config)
+            if config.request == "attach" then
+              ---@diagnostic disable-next-line: undefined-field
+              local port = (config.connect or config).port
+              ---@diagnostic disable-next-line: undefined-field
+              local host = (config.connect or config).host or "127.0.0.1"
+              ---@diagnostic disable-next-line: missing-fields
+              cb {
+                type = "server",
+                port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+                host = host,
+                options = {
+                  source_filetype = "python",
+                },
+              }
+            else
+              ---@diagnostic disable-next-line: missing-fields
+              cb {
+                type = "executable",
+                command = "/usr/bin/python",
+                args = { "-m", "debugpy.adapter" },
+                options = {
+                  source_filetype = "python",
+                },
+              }
+            end
+          end
+          dap.configurations.python = {
+            {
+              type = "python",
+              request = "launch",
+              name = "Launch file",
+
+              program = "${file}",
+              pythonPath = function()
+                local cwd = vim.fn.getcwd()
+                if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+                  return cwd .. "/venv/bin/python"
+                elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+                  return cwd .. "/.venv/bin/python"
+                else
+                  return "/usr/bin/python"
+                end
+              end,
+              console = "integratedTerminal", -- This line will prevent EOF error on input() function
             },
           }
         end,
