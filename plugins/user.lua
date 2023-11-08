@@ -9,4 +9,19 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  {
+    "tpope/vim-dadbod",
+    event = "User AstroFile",
+    opt = {},
+  },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    event = "User AstroFile",
+    opt = {},
+  },
+  {
+    "kristijanhusak/vim-dadbod-completion",
+    event = "User AstroFile",
+    config = function() require("user.plugins.config.dadbod").setup() end,
+  },
 }
