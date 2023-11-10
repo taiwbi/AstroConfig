@@ -14,7 +14,7 @@ return {
         "cssls",
         "quick_lint_js",
         -- python
-        "pylsp",
+        "pyright",
       })
     end,
   },
