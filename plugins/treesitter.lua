@@ -10,6 +10,7 @@ return {
       "css",
       "javascript",
       "php",
+      "scss",
       -- Python
       "python",
     })
