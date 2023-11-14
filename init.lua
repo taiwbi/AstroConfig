@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -106,11 +106,11 @@ return {
     vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("x", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
     -- Transparent background
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-    vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = "none" })
-    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
-    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
+    -- vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
   end,
 }
