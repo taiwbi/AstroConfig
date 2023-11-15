@@ -30,4 +30,10 @@ return {
     priority = 1000,
     opt = {},
   },
+  {
+    "dcampos/nvim-sftp-sync",
+    name = "nvim-sftp-sync",
+    event = "User AstroFile",
+    config = function() require("user.plugins.config.sftp").config() end,
+  },
 }
