@@ -32,6 +32,8 @@ return {
         "phpcbf",
         "blade-formatter",
         "tlint", -- blade linter
+        "stylelint",
+        "stylelint-lsp",
         -- python
         "black",
       })
