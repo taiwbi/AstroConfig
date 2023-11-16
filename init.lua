@@ -103,14 +103,27 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.filetype.add {
+      pattern = {
+        [".*.blade.php"] = "blade",
+      },
+    }
     vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("x", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
+
     -- Transparent background
-    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+    vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
+    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+
+    -- Adding my custom snippets
+    require("luasnip.loaders.from_vscode").lazy_load {
+      -- this can be used if your configuration lives in ~/.config/nvim
+      -- if your configuration lives in ~/.config/astronvim, the full path
+      -- must be specified in the next line
+      paths = { "./lua/user/snippets" },
+    }
   end,
 }

@@ -36,4 +36,19 @@ return {
     event = "User AstroFile",
     config = function() require("user.plugins.config.sftp").config() end,
   },
+  {
+    "adalessa/laravel.nvim",
+    name = "laravel",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-dotenv",
+      "MunifTanjim/nui.nvim",
+    },
+    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+    event = { "VeryLazy" },
+    config = function ()
+      require("laravel").setup()
+      require("telescope").load_extension "laravel"
+    end
+  },
 }
