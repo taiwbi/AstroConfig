@@ -46,9 +46,9 @@ return {
     },
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     event = { "VeryLazy" },
-    config = function ()
+    config = function()
       require("laravel").setup()
       require("telescope").load_extension "laravel"
-    end
+    end,
   },
 }
