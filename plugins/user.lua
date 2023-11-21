@@ -31,12 +31,6 @@ return {
     opt = {},
   },
   {
-    "dcampos/nvim-sftp-sync",
-    name = "nvim-sftp-sync",
-    event = "User AstroFile",
-    config = function() require("user.plugins.config.sftp").config() end,
-  },
-  {
     "adalessa/laravel.nvim",
     name = "laravel",
     dependencies = {
