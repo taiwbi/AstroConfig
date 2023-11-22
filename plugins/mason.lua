@@ -82,6 +82,7 @@ return {
                 XDEBUG_CONFIG = "client_port=${port}",
               },
             },
+            require("user.plugins.config.dap-php") -- Personal PHP debug configurations
           }
         end,
         -- Python
