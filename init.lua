@@ -111,12 +111,16 @@ return {
     vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap("x", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 
-    -- Transparent background
-    -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
-    -- vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+    -- Enabling spell check
+    vim.opt.spelllang = "en_us"
+    vim.opt.spell = true
+
+    -- Custom background
+    vim.api.nvim_command("highlight Normal guibg=#11121d7c")
+    vim.api.nvim_command("highlight NormalNC guibg=#11121d7c")
+    vim.api.nvim_command("highlight Pmenu guibg=#11121d7c")
+    vim.api.nvim_command("highlight PmenuSbar guibg=#11121d7c")
+    vim.api.nvim_command("highlight PmenuThumb guibg=#11121d7c")
 
     -- Adding my custom snippets
     require("luasnip.loaders.from_vscode").lazy_load {
