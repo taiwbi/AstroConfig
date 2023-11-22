@@ -116,11 +116,12 @@ return {
     vim.opt.spell = true
 
     -- Custom background
-    vim.api.nvim_command("highlight Normal guibg=#11121d7c")
-    vim.api.nvim_command("highlight NormalNC guibg=#11121d7c")
-    vim.api.nvim_command("highlight Pmenu guibg=#11121d7c")
-    vim.api.nvim_command("highlight PmenuSbar guibg=#11121d7c")
-    vim.api.nvim_command("highlight PmenuThumb guibg=#11121d7c")
+    CustomBackground = "#11121d7c"
+    vim.api.nvim_command("highlight Normal guibg=" .. CustomBackground)
+    vim.api.nvim_command("highlight NormalNC guibg=" .. CustomBackground)
+    vim.api.nvim_command("highlight Pmenu guibg=" .. CustomBackground)
+    vim.api.nvim_command("highlight PmenuSbar guibg=" .. CustomBackground)
+    vim.api.nvim_command("highlight PmenuThumb guibg=" .. CustomBackground)
 
     -- Adding my custom snippets
     require("luasnip.loaders.from_vscode").lazy_load {
