@@ -15,6 +15,8 @@ return {
       "scss",
       -- Python
       "python",
+      -- Rust
+      "rust",
     })
     parser_config.blade = {
       install_info = {
