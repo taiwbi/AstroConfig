@@ -31,6 +31,18 @@ return {
     opt = {},
   },
   {
+    "olimorris/onedarkpro.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("onedarkpro").setup {
+        options = {
+          transparency = true,
+        },
+      }
+    end,
+  },
+  {
     "adalessa/laravel.nvim",
     name = "laravel",
     dependencies = {

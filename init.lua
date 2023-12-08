@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
+  colorscheme = "onedark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -92,14 +92,6 @@ return {
     -- Enabling spell check
     vim.opt.spelllang = "en_us"
     vim.opt.spell = true
-
-    -- Custom background
-    CustomBackground = "#11121d7c"
-    vim.api.nvim_command("highlight Normal guibg=" .. CustomBackground)
-    vim.api.nvim_command("highlight NormalNC guibg=" .. CustomBackground)
-    vim.api.nvim_command("highlight Pmenu guibg=" .. CustomBackground)
-    vim.api.nvim_command("highlight PmenuSbar guibg=" .. CustomBackground)
-    vim.api.nvim_command("highlight PmenuThumb guibg=" .. CustomBackground)
 
     -- Adding my custom snippets
     require("luasnip.loaders.from_vscode").lazy_load {
