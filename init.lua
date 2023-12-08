@@ -52,6 +52,11 @@ return {
     servers = {
       -- "pyright"
     },
+    config = {
+      pyright = {
+        indent = 2,
+      },
+    },
   },
 
   -- Configure require("lazy").setup() options
@@ -100,5 +105,16 @@ return {
       -- must be specified in the next line
       paths = { "./lua/user/snippets" },
     }
+
+    -- set indent size
+    vim.opt.tabstop = 2
+    vim.opt.softtabstop = 2
+    vim.opt.shiftwidth = 2
+    function StTabs()
+      vim.cmd "set ts=4 sts=4 noet"
+      vim.cmd "retab!"
+      vim.cmd "set ts=2 sts=2 et"
+      vim.cmd "retab"
+    end
   end,
 }
