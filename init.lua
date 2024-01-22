@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "onedark",
+  colorscheme = "astrodark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -43,7 +43,7 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         -- "lua_ls",
       },
-      timeout_ms = 1000, -- default format timeout
+      timeout_ms = 10000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   return true
       -- end
@@ -54,6 +54,9 @@ return {
     },
     config = {
       pyright = {
+        indent = 2,
+      },
+      intelephense = {
         indent = 2,
       },
     },
@@ -95,8 +98,8 @@ return {
     vim.api.nvim_set_keymap("x", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
 
     -- Enabling spell check
-    vim.opt.spelllang = "en_us"
-    vim.opt.spell = true
+    -- vim.opt.spelllang = "en_us"
+    -- vim.opt.spell = true
 
     -- Adding my custom snippets
     require("luasnip.loaders.from_vscode").lazy_load {
@@ -115,6 +118,9 @@ return {
       vim.cmd "retab!"
       vim.cmd "set ts=2 sts=2 et"
       vim.cmd "retab"
+      vim.opt.tabstop = 2
+      vim.opt.softtabstop = 2
+      vim.opt.shiftwidth = 2
     end
   end,
 }

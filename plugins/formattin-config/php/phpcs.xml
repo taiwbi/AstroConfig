@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<ruleset name="Custom">
+    <description>Custom ruleset for PEAR with 2 spaces tab size</description>
+    <rule ref="PEAR">
+        <exclude name="PEAR.WhiteSpace.ScopeIndent"/>
+        <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent"/>
+        <exclude name="PEAR.WhiteSpace.MemberVarIndent"/>
+        <exclude name="PEAR.WhiteSpace.FunctionClosingBrace"/>
+        <exclude name="PEAR.WhiteSpace.SwitchIndent"/>
+        <exclude name="PEAR.WhiteSpace.ControlStructureSpacing"/>
+        <exclude name="PEAR.WhiteSpace.FunctionSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ScopeClosingBrace"/>
+        <exclude name="PEAR.WhiteSpace.ClassDefinition"/>
+        <exclude name="PEAR.WhiteSpace.FunctionDeclaration"/>
+        <exclude name="PEAR.WhiteSpace.ClassMemberSpacing"/>
+        <exclude name="PEAR.WhiteSpace.FunctionCallSignature"/>
+        <exclude name="PEAR.WhiteSpace.FunctionCallSpace"/>
+        <exclude name="PEAR.WhiteSpace.ObjectOperatorSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ScopeKeyword"/>
+        <exclude name="PEAR.WhiteSpace.ScopeOpeningBrace"/>
+        <exclude name="PEAR.WhiteSpace.SuperfluousWhitespace"/>
+        <exclude name="PEAR.WhiteSpace.VariableInString"/>
+        <exclude name="PEAR.WhiteSpace.OperatorSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ArrayDeclaration"/>
+        <exclude name="PEAR.WhiteSpace.Comma"/>
+        <exclude name="PEAR.WhiteSpace.FunctionArgumentSpacing"/>
+        <exclude name="PEAR.WhiteSpace.CastSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent"/>
+        <exclude name="PEAR.WhiteSpace.MemberVarIndent"/>
+        <exclude name="PEAR.WhiteSpace.FunctionClosingBrace"/>
+        <exclude name="PEAR.WhiteSpace.SwitchIndent"/>
+        <exclude name="PEAR.WhiteSpace.ControlStructureSpacing"/>
+        <exclude name="PEAR.WhiteSpace.FunctionSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ScopeClosingBrace"/>
+        <exclude name="PEAR.WhiteSpace.ClassDefinition"/>
+        <exclude name="PEAR.WhiteSpace.FunctionDeclaration"/>
+        <exclude name="PEAR.WhiteSpace.ClassMemberSpacing"/>
+        <exclude name="PEAR.WhiteSpace.FunctionCallSignature"/>
+        <exclude name="PEAR.WhiteSpace.FunctionCallSpace"/>
+        <exclude name="PEAR.WhiteSpace.ObjectOperatorSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ScopeKeyword"/>
+        <exclude name="PEAR.WhiteSpace.ScopeOpeningBrace"/>
+        <exclude name="PEAR.WhiteSpace.SuperfluousWhitespace"/>
+        <exclude name="PEAR.WhiteSpace.VariableInString"/>
+        <exclude name="PEAR.WhiteSpace.OperatorSpacing"/>
+        <exclude name="PEAR.WhiteSpace.ArrayDeclaration"/>
+        <exclude name="PEAR.WhiteSpace.Comma"/>
+        <exclude name="PEAR.WhiteSpace.FunctionArgumentSpacing"/>
+        <exclude name="PEAR.WhiteSpace.CastSpacing"/>
+        <arg name="tab-width" value="2"/>
+    </rule>
+</ruleset>

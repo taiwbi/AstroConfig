@@ -9,10 +9,10 @@ return {
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         -- Web Development
-        "phpactor",
         "html",
         "cssls",
         "quick_lint_js",
+        "intelephense",
         -- python
         "pyright",
         -- Rust
@@ -29,11 +29,12 @@ return {
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "stylua",
         "shellcheck",
+        "xmlformatter",
         -- Web Development
         "prettier",
         "phpcbf",
+        "phpcs",
         "blade-formatter",
-        "tlint", -- blade linter
         "stylelint",
         "stylelint-lsp",
         -- python
