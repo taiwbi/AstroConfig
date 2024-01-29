@@ -11,10 +11,10 @@ return {
         -- Web Development
         "html",
         "cssls",
-        "quick_lint_js",
+        "tsserver",
         "intelephense",
         -- python
-        "pyright",
+        "pylsp",
         -- Rust
         "rust_analyzer",
       })
@@ -32,13 +32,7 @@ return {
         "xmlformatter",
         -- Web Development
         "prettier",
-        "phpcbf",
-        "phpcs",
-        "blade-formatter",
-        "stylelint",
-        "stylelint-lsp",
         -- python
-        "black",
         "rustfmt",
       })
     end,

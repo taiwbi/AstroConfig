@@ -53,12 +53,40 @@ return {
       -- "pyright"
     },
     config = {
-      pyright = {
-        indent = 2,
-      },
-      intelephense = {
-        indent = 2,
-      },
+      pylsp = function(opts)
+        opts.root_dir = require("lspconfig.util").root_pattern "main.py"
+        opts.settings = {
+          pylsp = {
+            configurationSources = { "pycodestyle" },
+            plugins = {
+              autopep8 = { enabled = false },
+              yapf = {
+                enabled = true,
+                style = {
+                  based_on_style = "pep8",
+                  indent_width = 2,
+                },
+              },
+              pycodestyle = {
+                enabled = true,
+                maxLineLength = 121,
+                indentSize = 2,
+              },
+            },
+          },
+        }
+        return opts
+      end,
+      intelephense = function(opts)
+        -- opts.root_dir = require("lspconfig.util").root_pattern("wp-config.php", "composer.json")
+        opts.root_dir = function() return vim.loop.cwd() end
+        return opts
+      end,
+      sqlls = function(opts)
+        -- opts.root_dir = require("lspconfig.util").root_pattern("index.php", "composer.json", "main.py")
+        opts.root_dir = function() return vim.loop.cwd() end
+        return opts
+      end,
     },
   },
 
@@ -94,12 +122,6 @@ return {
         [".*.blade.php"] = "blade",
       },
     }
-    vim.api.nvim_set_keymap("n", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
-    vim.api.nvim_set_keymap("x", "<RightMouse>", "<Nop>", { noremap = true, silent = true })
-
-    -- Enabling spell check
-    -- vim.opt.spelllang = "en_us"
-    -- vim.opt.spell = true
 
     -- Adding my custom snippets
     require("luasnip.loaders.from_vscode").lazy_load {
@@ -113,11 +135,8 @@ return {
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
     vim.opt.shiftwidth = 2
+    vim.opt.expandtab = true
     function StTabs()
-      vim.cmd "set ts=4 sts=4 noet"
-      vim.cmd "retab!"
-      vim.cmd "set ts=2 sts=2 et"
-      vim.cmd "retab"
       vim.opt.tabstop = 2
       vim.opt.softtabstop = 2
       vim.opt.shiftwidth = 2
