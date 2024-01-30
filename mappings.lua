@@ -42,6 +42,10 @@ return {
       function() vim.cmd "DBUIToggle" end,
       desc = "Show the Database UI tooltip",
     },
+    ["<leader>gg"] = {
+      function() vim.cmd "Flog" end,
+      desc = "Shows the Git commits graph",
+    },
     ["<leader>T"] = {
       desc = " Todos list"
     },
