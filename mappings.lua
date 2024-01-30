@@ -42,6 +42,17 @@ return {
       function() vim.cmd "DBUIToggle" end,
       desc = "Show the Database UI tooltip",
     },
+    ["<leader>T"] = {
+      desc = " Todos list"
+    },
+    ["<leader>Tt"] = {
+      function() vim.cmd "TodoTelescope" end,
+      desc = "Todos list in Telescope"
+    },
+    ["<leader>Tl"] = {
+      function() vim.cmd "TodoLocList" end,
+      desc = "Todos list in Location list"
+    },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
   },
