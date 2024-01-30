@@ -2,12 +2,19 @@
 
 My user configuration template for [Neovim](https://github.com/neovim/neovim) and [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
+![Screenshot of the dashboard](images/dashboard.png)
+
 ## 🍉 Features
 
 - Code completion for various programming languages
 - Language Server Protocol (LSP) support for diagnostics and debugging
 - AI code completion with Tabnine
 - Formatting and linting for languages
+
+
+![Screenshot of the Code Completion](images/code-completion.png)
+![Screenshot of the Git commits Graph](images/git-graph.png)
+![Screenshot of the PHP debugging](images/php-debug.png)
 
 ## 🍇 Supported Languages
 
