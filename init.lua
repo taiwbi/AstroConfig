@@ -131,6 +131,10 @@ return {
       paths = { "./lua/user/snippets" },
     }
 
+    -- Fixing Arabic text 
+    -- Make sure to install a persian monospace font if you type persian in yout code
+    vim.opt.arabicshape = false
+
     -- set indent size
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
