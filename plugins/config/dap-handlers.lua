@@ -30,7 +30,8 @@ return {
           XDEBUG_CONFIG = "client_port=${port}",
         },
       },
-      require "user.plugins.config.dap-php", -- Personal PHP debug configurations
+      -- If you want to have some configurations that you don't want to track in git, you can uncomment the below line and return your configurations in ./dap-php.lua file
+      -- require "user.plugins.config.dap-php", -- Personal PHP debug configurations
     }
   end,
   -- Python
