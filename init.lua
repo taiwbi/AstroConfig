@@ -78,12 +78,14 @@ return {
         return opts
       end,
       intelephense = function(opts)
-        -- opts.root_dir = require("lspconfig.util").root_pattern("wp-config.php", "composer.json")
         opts.root_dir = function() return vim.loop.cwd() end
+        local key = io.open(os.getenv('HOME') .. "/intelephense/license", "rb")
+        if not key then return opts end
+        opts.init_options = { licenceKey = key:read("*all") }
+        key:close()
         return opts
       end,
       sqlls = function(opts)
-        -- opts.root_dir = require("lspconfig.util").root_pattern("index.php", "composer.json", "main.py")
         opts.root_dir = function() return vim.loop.cwd() end
         return opts
       end,
@@ -131,7 +133,7 @@ return {
       paths = { "./lua/user/snippets" },
     }
 
-    -- Fixing Arabic text 
+    -- Fixing Arabic text
     -- Make sure to install a persian monospace font if you type persian in yout code
     vim.opt.arabicshape = false
 
