@@ -83,7 +83,13 @@ return {
         }
         return opts
       end,
+      phpactor = function(opts)
+        opts.root_dir = function() return vim.loop.cwd() end
+        -- opts.enabled = false
+        return opts
+      end,
       intelephense = function(opts)
+        opts.enabled = false
         opts.root_dir = function() return vim.loop.cwd() end
         local key = io.open(os.getenv "HOME" .. "/intelephense/license", "rb")
         if not key then return opts end
@@ -140,8 +146,18 @@ return {
     }
 
     -- Fixing Arabic text
-    -- Make sure to install a persian monospace font if you type persian in yout code
+    -- Make sure to install a persian monospace font if you type persian in your code
     vim.opt.arabicshape = false
+
+    local transparency = os.getenv "TRANSPARENT_VIM"
+
+    if transparency == 'true' then
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+      vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
+      vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+    end
 
     -- set indent size
     vim.opt.tabstop = 2
