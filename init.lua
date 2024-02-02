@@ -1,4 +1,10 @@
 return {
+  heirline = {
+    separators = {
+      breadcrumbs = "  ",
+      path = "  ",
+    },
+  },
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -18,7 +24,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "catppuccin",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -79,9 +85,9 @@ return {
       end,
       intelephense = function(opts)
         opts.root_dir = function() return vim.loop.cwd() end
-        local key = io.open(os.getenv('HOME') .. "/intelephense/license", "rb")
+        local key = io.open(os.getenv "HOME" .. "/intelephense/license", "rb")
         if not key then return opts end
-        opts.init_options = { licenceKey = key:read("*all") }
+        opts.init_options = { licenceKey = key:read "*all" }
         key:close()
         return opts
       end,
