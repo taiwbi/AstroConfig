@@ -83,13 +83,7 @@ return {
         }
         return opts
       end,
-      phpactor = function(opts)
-        opts.root_dir = function() return vim.loop.cwd() end
-        -- opts.enabled = false
-        return opts
-      end,
       intelephense = function(opts)
-        opts.enabled = false
         opts.root_dir = function() return vim.loop.cwd() end
         local key = io.open(os.getenv "HOME" .. "/intelephense/license", "rb")
         if not key then return opts end
@@ -151,7 +145,7 @@ return {
 
     local transparency = os.getenv "TRANSPARENT_VIM"
 
-    if transparency == 'true' then
+    if transparency == "true" then
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
       vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })

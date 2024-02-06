@@ -35,8 +35,17 @@ return {
   {
     "Shatur/neovim-session-manager",
     opts = function(_, opts)
-      opts.autosave_last_session = false
+      opts.autosave_last_session = true
       return opts
+    end,
+  },
+  {
+    "stevearc/aerial.nvim",
+    opts = function(_, opts)
+      opts.backends = {
+        php = { "treesitter", "lsp" },
+        javascript = { "lsp", "treesitter" },
+      }
     end,
   },
   -- You can disable default plugins as follows:
