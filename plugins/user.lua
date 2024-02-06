@@ -104,4 +104,8 @@ return {
     end,
     event = "User AstroFile",
   },
+  {
+    "AstroNvim/astrocommunity",
+    { import = "astrocommunity.pack.typescript" },
+  },
 }

@@ -91,6 +91,10 @@ return {
         key:close()
         return opts
       end,
+      tsserver = function(opts)
+        opts.root_dir = function() return vim.loop.cwd() end
+        return opts
+      end,
       sqlls = function(opts)
         opts.root_dir = function() return vim.loop.cwd() end
         return opts
