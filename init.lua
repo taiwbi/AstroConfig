@@ -24,7 +24,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
+  colorscheme = "tokyonight-night",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -152,9 +152,19 @@ return {
     if transparency == "true" then
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
       vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "none" })
       vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "none" })
+      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
     end
 
     -- set indent size
