@@ -110,4 +110,11 @@ return {
     { import = "astrocommunity.pack.typescript" },
     { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   },
+  {
+    "arzg/vim-colors-xcode",
+    config = function()
+      -- code
+    end,
+    event = "VeryLazy"
+  },
 }
