@@ -99,6 +99,15 @@ return {
         opts.root_dir = function() return vim.loop.cwd() end
         return opts
       end,
+      bashls = function(opts)
+        opts.root_dir = function() return vim.loop.cwd() end
+        return opts
+      end,
+      stimulus_ls = function(opts)
+        opts.root_dir = function() return vim.loop.cwd() end
+        opts.filetypes = { "blade" }
+        return opts
+      end,
     },
   },
 
@@ -162,9 +171,30 @@ return {
       vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
       vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none", fg = "#74c7ec" })
       vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
       vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+      vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
+      vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
+      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NonText", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyBackground", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyErrorBody", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyErrorBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyDEBUGBody", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NOtifyWARNBody", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NOtifyWARNBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyINFOBody", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyINFOBorder", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyTRACEBody", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { bg = "none" })
+      -- Color for indent-blankline.nvim on xcode colorscheme
+      if vim.api.nvim_exec("colorscheme", true) == "xcode" then
+        vim.api.nvim_set_hl(0, "IblScope", { bg = "none", fg = "#D476BC" })
+      end
     end
 
     -- set indent size

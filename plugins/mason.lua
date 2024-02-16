@@ -8,11 +8,13 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
+        "bashls",
         -- Web Development
         "html",
         "cssls",
         "tsserver",
         "intelephense",
+        -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
         -- python
         "pylsp",
         -- Rust
@@ -28,7 +30,7 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
         "stylua",
-        "shellcheck",
+        "shfmt",
         "xmlformatter",
         -- Web Development
         "prettier",

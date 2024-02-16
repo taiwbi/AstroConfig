@@ -29,6 +29,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     opt = {},
+    event = "VeryLazy"
   },
   {
     "olimorris/onedarkpro.nvim",
@@ -107,6 +108,6 @@ return {
   {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.pack.typescript" },
-    { import = "astrocommunity.colorscheme.tokyonight-nvim" }
+    { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   },
 }
