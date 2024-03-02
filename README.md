@@ -29,7 +29,7 @@ My user configuration template for [Neovim](https://github.com/neovim/neovim) an
 
 ### Step 0: Install Dependencies
 
-> I might forgot to include something here, if you out something's wrong let me know
+> I might forgot to include something here, if you somehow find out something's wrong let me know 🤪
 
 Install rust language and rustup on you LINUX machine and, then install rustfmt using rustup
 
