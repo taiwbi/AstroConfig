@@ -8,7 +8,6 @@ My user configuration template for [Neovim](https://github.com/neovim/neovim) an
 
 - Code completion for various programming languages
 - Language Server Protocol (LSP) support for diagnostics and debugging
-- AI code completion with Tabnine
 - Formatting and linting for languages
 
 
@@ -27,6 +26,16 @@ My user configuration template for [Neovim](https://github.com/neovim/neovim) an
 - Bash: Diagnostics with shellcheck
 
 ## 🛠️ Installation
+
+### Step 0: Install Dependencies
+
+> I might forgot to include something here, if you out something's wrong let me know
+
+Install rust language and rustup on you LINUX machine and, then install rustfmt using rustup
+
+```sh
+rustup component add rustfmt
+```
 
 ### Step 1: Install AstroNvim
 

@@ -11,6 +11,10 @@ return {
     config.sources = {
       -- Set a formatter
       null_ls.builtins.formatting.prettier,
+      null_ls.builtins.formatting.rustfmt.with {
+        command = "/usr/bin/rustfmt",
+        extra_args = { "--config", "tab_spaces=2", "--edition", "2021" },
+      },
     }
     return config -- return final config table
   end,

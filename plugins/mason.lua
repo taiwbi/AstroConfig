@@ -11,7 +11,7 @@ return {
         "bashls",
         -- Web Development
         "html",
-        "cssls",
+        "stylelint_lsp",
         "tsserver",
         "intelephense",
         -- "stimulus_ls", This package's name is wrong in lspconfig so run `npm i -g stimulus-lsp`
@@ -34,8 +34,9 @@ return {
         "xmlformatter",
         -- Web Development
         "prettier",
+        "stylelint",
         -- python
-        "rustfmt",
+        -- "rustfmt", -- DEPRECATED Install rustfmt using rustup or your distro package manager
       })
     end,
   },

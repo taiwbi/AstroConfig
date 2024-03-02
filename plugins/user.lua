@@ -29,16 +29,17 @@ return {
     name = "catppuccin",
     priority = 1000,
     opt = {},
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "olimorris/onedarkpro.nvim",
     lazy = false,
     priority = 1000,
     config = function()
+      local transparency = os.getenv "TRANSPARENT_VIM"
       require("onedarkpro").setup {
         options = {
-          transparency = true,
+          transparency = transparency,
         },
       }
     end,
@@ -67,42 +68,9 @@ return {
     },
   },
   {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      local rt = require "rust-tools"
-      rt.setup {
-        server = {
-          on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-          end,
-        },
-      }
-    end,
-    event = { "BufRead *.rs" },
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
-    event = "User AstroFile",
-  },
-  {
-    "codota/tabnine-nvim",
-    build = "./dl_binaries.sh",
-    config = function()
-      require("tabnine").setup {
-        disable_auto_comment = true,
-        accept_keymap = "<C-]>",
-        dismiss_keymap = "<C-[>",
-        debounce_ms = 400,
-        suggestion_color = { gui = "#2b2b2b", cterm = 150 },
-        exclude_filetypes = { "TelescopePrompt", "neo-tree" },
-        log_file_path = nil, -- absolute path to Tabnine log file
-      }
-    end,
     event = "User AstroFile",
   },
   {
@@ -115,6 +83,15 @@ return {
     config = function()
       -- code
     end,
-    event = "VeryLazy"
+    event = "VeryLazy",
+  },
+  {
+    "Mofiqul/adwaita.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local transparency = os.getenv "TRANSPARENT_VIM"
+      vim.g.adwaita_transparent = transparency == "true"
+    end,
   },
 }
