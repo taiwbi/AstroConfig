@@ -31,11 +31,8 @@ My user configuration template for [Neovim](https://github.com/neovim/neovim) an
 
 > I might forgot to include something here, if you somehow find out something's wrong let me know 🤪
 
-Install rust language and rustup on you LINUX machine and, then install rustfmt using rustup
-
-```sh
-rustup component add rustfmt
-```
+- Install rustfmt using your distro package manager or `rustup`
+- Install `stimulus-lsp` using npm: `npm i -g stimulus-lsp`
 
 ### Step 1: Install AstroNvim
 

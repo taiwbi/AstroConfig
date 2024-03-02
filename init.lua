@@ -108,11 +108,6 @@ return {
         opts.filetypes = { "blade" }
         return opts
       end,
-      styleline_lsp = function(opts)
-        opts.root_dir = function() return vim.loop.cwd() end
-        opts.filetypes = { "css", "scss", "sass" }
-        return opts
-      end,
       rust_analyzer = function(opts)
         opts.settings = {
           rustfmt = {
