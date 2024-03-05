@@ -41,7 +41,7 @@ return {
   {
     "Shatur/neovim-session-manager",
     opts = function(_, opts)
-      opts.autosave_last_session = false
+      opts.autosave_last_session = true
       return opts
     end,
   },

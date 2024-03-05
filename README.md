@@ -9,7 +9,7 @@ My user configuration template for [Neovim](https://github.com/neovim/neovim) an
 - Code completion for various programming languages
 - Language Server Protocol (LSP) support for diagnostics and debugging
 - Formatting and linting for languages
-
+- AI Code Completion with [Codeium](https://github.com/Exafunction/codeium.vim)
 
 ![Screenshot of the Code Completion](images/code-completion.png)
 ![Screenshot of the Git commits Graph](images/git-graph.png)
@@ -75,6 +75,21 @@ Finally, start Neovim by running the following command:
 nvim
 ```
 
+# Step 4: AI Code completion
+
+For AI Code completion using Codeium, log in by using `:Codeium Auth` in Neovim. The login page should open in your browser.
+I've adjusted the keyboard shortcuts for smoother integration with AstroNvim.
+
+| Key      | Command             |
+| -------- | ------------------- |
+| `Ctrl+g` | Accept Completion   |
+| `Ctrl+\` | Complete the code   |
+| `Ctrl+x` | Decline Completion  |
+| `Ctrl+'` | Next Suggestion     |
+| `Ctrl+;` | Previous Suggestion |
+
 Enjoy Neovim! 🤪
 
 > For more information, please refer to the [AstroNvim documentation](https://docs.astronvim.com/).
+
+Feel free to modify it according to your preferences!
