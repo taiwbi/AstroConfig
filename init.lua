@@ -85,6 +85,7 @@ return {
       end,
       intelephense = function(opts)
         opts.root_dir = function() return vim.loop.cwd() end
+        opts.filetypes = { "php", "blade" }
         local key = io.open(os.getenv "HOME" .. "/intelephense/license", "rb")
         if not key then return opts end
         opts.init_options = { licenceKey = key:read "*all" }
