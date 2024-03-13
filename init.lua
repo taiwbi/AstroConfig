@@ -111,8 +111,11 @@ return {
       end,
       rust_analyzer = function(opts)
         opts.settings = {
-          rustfmt = {
-            tab_width = 2,
+          ["rust-analyzer"] = {
+            files = {
+              excludeDirs = { "target", "build", ".flatpak-builder", ".git" },
+              watcherExclude = { "target", "build", ".flatpak-builder", ".git" },
+            },
           },
         }
         return opts

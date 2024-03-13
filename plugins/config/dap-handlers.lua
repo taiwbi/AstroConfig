@@ -10,6 +10,14 @@ return {
         "/home/mahdi/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
       },
     }
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "13123",
+      executable = {
+        command = "/home/mahdi/.local/share/nvim/mason/packages/codelldb/codelldb",
+        args = { "--port", "13123" },
+      },
+    }
     dap.configurations.php = {
       {
         type = "php",
@@ -32,6 +40,17 @@ return {
       },
       -- If you want to have some configurations that you don't want to track in git, you can uncomment the below line and return your configurations in ./dap-php.lua file
       -- require "user.plugins.config.dap-php", -- Personal PHP debug configurations
+    }
+    dap.configurations.rust = {
+      {
+        name = "Launch file",
+        type = "codelldb",
+        request = "launch",
+        program = "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+        cwd = "${workspaceFolder}",
+        stopOnEntry = false,
+        sourceLanguages = { "rust" },
+      },
     }
   end,
   -- Python

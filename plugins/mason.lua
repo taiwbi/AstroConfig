@@ -49,6 +49,8 @@ return {
         "php",
         -- Python
         "python",
+        -- rust
+        "codelldb",
       })
       opts.handlers = require "user.plugins.config.dap-handlers"
     end,
