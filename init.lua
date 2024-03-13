@@ -1,7 +1,7 @@
 return {
   heirline = {
     separators = {
-      breadcrumbs = "  ",
+      breadcrumbs = " ► ",
       path = "  ",
     },
   },
@@ -169,6 +169,7 @@ return {
     vim.opt.arabicshape = false
 
     local transparency = os.getenv "TRANSPARENT_VIM"
+    transparency = "false"
     local current_theme = vim.api.nvim_exec("colorscheme", true)
 
     if transparency == "true" then
@@ -211,6 +212,42 @@ return {
         end
       end
     end
+
+    local function handle_theme_change()
+      current_theme = vim.api.nvim_exec("colorscheme", true)
+
+      if string.match(current_theme, "^adwaita.*") then
+        if vim.o.background == "dark" then
+          vim.api.nvim_set_hl(0, "Normal", { bg = "#262626" })
+          vim.api.nvim_set_hl(0, "NormalNC", { bg = "#262626" })
+        elseif vim.o.background == "light" then
+          vim.api.nvim_set_hl(0, "Normal", { bg = "#FFFFFF" })
+          vim.api.nvim_set_hl(0, "NormalNC", { bg = "#FFFFFF" })
+        end
+      elseif string.match(current_theme, "^onedark.*") then
+        vim.api.nvim_set_hl(0, "Normal", { bg = "#282C34" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "#282C34" })
+      end
+    end
+
+    if vim.g.neovide then
+      vim.opt.guifont = "Maple Mono:h11"
+      vim.opt.guifontwide = "Vazir Code Hack:h10"
+      vim.opt.linespace = -1
+      vim.g.neovide_padding_top = 3
+      vim.g.neovide_padding_bottom = 3
+      vim.g.neovide_padding_right = 3
+      vim.g.neovide_padding_left = 3
+      vim.g.neovide_transparency = 1
+      vim.g.neovide_cursor_animation_length = 0.2
+      vim.g.neovide_cursor_trail_size = 0.05
+      vim.g.neovide_hide_mouse_when_typing = true
+      handle_theme_change()
+      vim.api.nvim_create_autocmd("ColorScheme", { callback = handle_theme_change })
+      vim.api.nvim_create_autocmd("OptionSet", { pattern = "background", callback = handle_theme_change })
+    end
+
+    vim.opt.showtabline = 0
 
     -- set indent size
     vim.opt.tabstop = 2
