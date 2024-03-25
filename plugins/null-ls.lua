@@ -15,6 +15,9 @@ return {
         command = "/usr/bin/rustfmt",
         extra_args = { "--config", "tab_spaces=2", "--edition", "2021" },
       },
+      null_ls.builtins.formatting.phpcbf.with {
+        extra_args = { "--standard=/home/mahdi/.config/nvim/lua/user/plugins/config/phpcs.xml" },
+      },
     }
     return config -- return final config table
   end,

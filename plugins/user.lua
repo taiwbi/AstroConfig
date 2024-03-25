@@ -25,13 +25,6 @@ return {
     config = function() require("user.plugins.config.dadbod").setup() end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opt = {},
-    event = "VeryLazy",
-  },
-  {
     "olimorris/onedarkpro.nvim",
     lazy = false,
     priority = 1000,
@@ -79,13 +72,6 @@ return {
     { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   },
   {
-    "arzg/vim-colors-xcode",
-    config = function()
-      -- code
-    end,
-    event = "VeryLazy",
-  },
-  {
     "Mofiqul/adwaita.nvim",
     lazy = false,
     priority = 1000,
@@ -95,26 +81,14 @@ return {
     end,
   },
   {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-    config = function()
-      -- disable defualt keymaps
-      vim.g.codeium_disable_bindings = 1
-      vim.keymap.set("i", "<C-g>", function() return vim.fn["codeium#Accept"]() end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-\\>", function() return vim.fn["codeium#Complete"]() end, { expr = true, silent = true })
-      vim.keymap.set("i", "<C-x>", function() return vim.fn["codeium#Clear"]() end, { expr = true, silent = true })
-      vim.keymap.set(
-        "i",
-        "<C-'>",
-        function() return vim.fn["codeium#CycleCompletions"](1) end,
-        { expr = true, silent = true }
-      )
-      vim.keymap.set(
-        "i",
-        "<C-;>",
-        function() return vim.fn["codeium#CycleCompletions"](-1) end,
-        { expr = true, silent = true }
-      )
-    end,
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function() require("chatgpt").setup() end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
   },
 }

@@ -51,15 +51,32 @@ return {
       desc = "Shows the Git commits graph",
     },
     ["<leader>T"] = {
-      desc = " Todos list"
+      desc = " Todos list",
     },
     ["<leader>Tt"] = {
       function() vim.cmd "TodoTelescope" end,
-      desc = "Todos list in Telescope"
+      desc = "Todos list in Telescope",
     },
     ["<leader>Tl"] = {
       function() vim.cmd "TodoLocList" end,
-      desc = "Todos list in Location list"
+      desc = "Todos list in Location list",
+    },
+    -- Open Alpha when the last buffesr closes
+    ["<leader>c"] = {
+      function()
+        local bufs = vim.fn.getbufinfo { buflisted = true }
+        require("astronvim.utils.buffer").close(0)
+        if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then require("alpha").start(true) end
+      end,
+      desc = "Close buffer",
+    },
+    -- ChatGPT
+    ["<leader>a"] = {
+      desc = "AI Assistant",
+    },
+    ["<leader>ac"] = {
+      function() vim.cmd "ChatGPTCompleteCode" end,
+      desc = "Get code suggestion from GPT",
     },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command

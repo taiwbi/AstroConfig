@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="CustomStandard">
+  <!-- Set the default standard to PSR2 -->
+  <arg name="standard" value="PSR2"></arg>
+  <!-- Report all errors and warnings -->
+  <arg name="report" value="full"></arg>
+  <!-- Exclude the sniff that enforces tab indentation -->
+  <rule ref="Generic.WhiteSpace.DisallowTabIndent"></rule>
+  <!-- Include the sniff that enforces space indentation -->
+  <rule ref="Generic.WhiteSpace.ScopeIndent">
+    <properties>
+      <property name="indent" value="2"></property>
+      <property name="tabIndent" value="false"></property>
+    </properties>
+  </rule>
+</ruleset>

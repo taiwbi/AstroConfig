@@ -24,7 +24,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "onedark_vivid",
+  colorscheme = "adwaita",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -85,11 +85,17 @@ return {
       end,
       intelephense = function(opts)
         opts.root_dir = function() return vim.loop.cwd() end
-        opts.filetypes = { "php", "blade" }
+        opts.enabled = false
+        opts.filetypes = {}
         local key = io.open(os.getenv "HOME" .. "/intelephense/license", "rb")
         if not key then return opts end
         opts.init_options = { licenceKey = key:read "*all" }
         key:close()
+        return opts
+      end,
+      phpactor = function(opts)
+        opts.root_dir = function() return vim.loop.cwd() end
+        opts.filetypes = { "php", "blade" }
         return opts
       end,
       tsserver = function(opts)
@@ -233,19 +239,40 @@ return {
     if vim.g.neovide then
       vim.opt.guifont = "Maple Mono:h11"
       vim.opt.guifontwide = "Vazir Code Hack:h10"
-      vim.opt.linespace = -1
-      vim.g.neovide_padding_top = 3
-      vim.g.neovide_padding_bottom = 3
-      vim.g.neovide_padding_right = 3
-      vim.g.neovide_padding_left = 3
+      vim.opt.linespace = 0
+      vim.g.neovide_padding_top = 0
+      vim.g.neovide_padding_bottom = 0
+      vim.g.neovide_padding_right = 0
+      vim.g.neovide_padding_left = 0
       vim.g.neovide_transparency = 1
-      vim.g.neovide_cursor_animation_length = 0.2
-      vim.g.neovide_cursor_trail_size = 0.05
-      vim.g.neovide_hide_mouse_when_typing = true
+      vim.g.neovide_cursor_animation_length = 0.3
+      vim.g.neovide_cursor_trail_size = 0.025
+      vim.g.neovide_hide_mouse_when_typing = false
       handle_theme_change()
       vim.api.nvim_create_autocmd("ColorScheme", { callback = handle_theme_change })
       vim.api.nvim_create_autocmd("OptionSet", { pattern = "background", callback = handle_theme_change })
     end
+
+    -- Remove this code block if you're not running GNOME
+    local last_gnome_theme = ""
+    local function gnome_them_sync()
+      local gnome_theme = string.gsub(vim.fn.system "gsettings get org.gnome.desktop.interface color-scheme", "\n", "")
+      if last_gnome_theme ~= gnome_theme then
+        if gnome_theme == "'prefer-dark'" then
+          vim.cmd "set background=dark"
+        else
+          vim.cmd "set background=light"
+        end
+        last_gnome_theme = gnome_theme
+      end
+    end
+    gnome_them_sync()
+    vim.api.nvim_create_autocmd("CursorHold", {
+      callback = gnome_them_sync,
+      desc = "Update color scheme based on GNOME theme",
+    })
+    local timer = vim.loop.new_timer()
+    timer:start(300, 300, vim.schedule_wrap(function() gnome_them_sync() end))
 
     vim.opt.showtabline = 0
 

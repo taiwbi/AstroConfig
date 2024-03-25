@@ -75,18 +75,19 @@ Finally, start Neovim by running the following command:
 nvim
 ```
 
-# Step 4: AI Code completion
+**If you haven't set an OpenAI API Key, you'll see an error at startup, so read the next topic.**
 
-For AI Code completion using Codeium, log in by using `:Codeium Auth` in Neovim. The login page should open in your browser.
-I've adjusted the keyboard shortcuts for smoother integration with AstroNvim.
+# Step 4: AI Code Completion
 
-| Key      | Command             |
-| -------- | ------------------- |
-| `Ctrl+g` | Accept Completion   |
-| `Ctrl+\` | Complete the code   |
-| `Ctrl+x` | Decline Completion  |
-| `Ctrl+'` | Next Suggestion     |
-| `Ctrl+;` | Previous Suggestion |
+For AI code completion using ChatGPT.nvim, log in to your OpenAI account, get an API key, and set the API key as an environment variable when running Neovim:
+
+```shell
+OPENAI_API_KEY="your_key_here" nvim
+```
+
+> For more information about ChatGPT.nvim, refer to its [repository](https://github.com/jackMort/ChatGPT.nvim).
+
+Enjoy Neovim! 🤪
 
 Enjoy Neovim! 🤪
 
