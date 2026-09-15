@@ -7,7 +7,7 @@ return {
     local neoscroll = require "neoscroll"
 
     neoscroll.setup {
-      duration_multiplier = 0.5,
+      duration_multiplier = 0.75,
     }
 
     for key, lines in pairs {
